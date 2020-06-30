@@ -29,4 +29,5 @@ def log_parser(path):
     return res
 
 
-log_parser('log_file.txt')
+if __name__ == "__main__":
+    log_parser('log_file.txt')

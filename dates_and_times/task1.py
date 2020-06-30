@@ -1,17 +1,14 @@
 import datetime
 
+from dateutil.rrule import *
 
-def friday_the_thirteen():
-    fridays = []
+
+def get_closest_fridays_the_thirteen():
     now_date = datetime.date.today()
-    delta = 0
-    while len(fridays) < 10:
-        delta += 1
-        cur_date = now_date + datetime.timedelta(delta)
-        if (datetime.date.weekday(cur_date) == 4) and (cur_date.strftime("%d") == '13'):
-            fridays.append(cur_date.strftime("%d.%m.%Y %B, %A"))
-    print('\n'.join(map(str, fridays)))
-    return
+    fridays_the_thirteen = rrule(MONTHLY, count=10, byweekday=FR, bymonthday=13, dtstart=now_date)
+    for day in fridays_the_thirteen:
+        print(day, day.strftime("%A"))
 
 
-friday_the_thirteen()
+if __name__ == "__main__":
+    get_closest_fridays_the_thirteen()
