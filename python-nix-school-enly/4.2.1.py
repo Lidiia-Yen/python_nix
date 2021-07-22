@@ -24,5 +24,5 @@ class DataBaseConnector:
 
 if __name__ == "__main__":
     with DataBaseConnector(db_name='countries', host='10.10.30.252', port='5432', user='postgres',
-                           password='p0S+gre', query='SELECT * FROM public.”Capital” LIMIT 10') as a:
+                           password='p0S+gre', query='SELECT * FROM "public"."Capital" LIMIT 10') as a:
         print(a)
