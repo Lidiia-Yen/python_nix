@@ -2,13 +2,14 @@ import psycopg2
 
 
 class DataBaseConnector:
-    def __init__(self, db_name: str, host: str, port: str, user: str, password: str, query):
+    def __init__(self, db_name: str, host: str, port: str, user: str, password: str, query): # если ты используешь
+        # аннотации - использу их везде
         self.db_name = db_name
         self.host = host
         self.port = port
         self.user = user
         self.password = password
-        self.query = query
+        self.query = query  # плохое решение загнать и запрос и коннект в инит
 
     def __enter__(self):
         self.conn = psycopg2.connect(database=self.db_name, user=self.user, password=self.password, host=self.host,

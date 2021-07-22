@@ -1,7 +1,8 @@
 from datetime import datetime, date
 from collections import namedtuple
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # оч корявая структура файла и уровни вложенности. Обрати внимание на замечания иде и
+    # переделай
     i = str(input())
 try:
     dt_start = datetime.strptime(i, '%d-%m-%Y')
