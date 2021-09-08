@@ -27,4 +27,3 @@ if __name__ == "__main__":
     log_file = open('yupdate-exec-yabrowser.log', 'r')
     print(return_dif(log_file))
 
-    1111
