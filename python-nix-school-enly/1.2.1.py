@@ -30,6 +30,7 @@ def compare_params(dict1, dict2):
     return difference_dict
 
 
+<<<<<<< HEAD
 def return_result(all_lines):
     result = decompose_line(all_lines)
     return f'\nResult:{compare_params(result[0],result[1])}'
@@ -39,3 +40,4 @@ if __name__ == "__main__":
     with open('yupdate-exec-yabrowser.log', 'r') as log_file:
         lines = log_file.readlines()
     print(return_result(lines))
+
