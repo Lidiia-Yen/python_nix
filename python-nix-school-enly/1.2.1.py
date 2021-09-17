@@ -1,5 +1,6 @@
 import re
 
+
 def find_line(all_lines):
     pattern_lines = [string.split("eid: ")[1] for string in all_lines if "eid: " in string]
     needed_lines = pattern_lines[-2:]
@@ -39,5 +40,3 @@ if __name__ == "__main__":
     with open('yupdate-exec-yabrowser.log', 'r') as log_file:
         lines = log_file.readlines()
     print(return_result(lines))
-
-
