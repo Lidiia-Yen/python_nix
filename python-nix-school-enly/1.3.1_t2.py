@@ -2,9 +2,9 @@ from pytz import timezone
 from datetime import datetime
 
 
-def time_dif(a, b):
-    time1 = datetime.now(timezone(a))
-    time2 = datetime.now(timezone(b))
+def time_dif(city1, city2):
+    time1 = datetime.now(timezone(city1))
+    time2 = datetime.now(timezone(city2))
     if time1.date() == time2.date():
         dif = abs(time2.hour-time1.hour)
     else:
