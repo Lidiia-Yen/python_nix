@@ -10,7 +10,8 @@ def time_dif(city1, city2):
     else:
         dif = (24-time1.hour+time2.hour if time1.hour > time2.hour else 24-time2.hour+time1.hour)
 
-    return f'\nTime in city 1: {time1.strftime("%X, %d %b %Y")}\nTime in city 2: {time2.strftime("%X, %d %b %Y")}\nTime difference: {dif} hour(s)'
+    return f'\nTime in city 1: {time1.strftime("%X, %d %b %Y")}\
+    \nTime in city 2: {time2.strftime("%X, %d %b %Y")}\nTime difference: {dif} hour(s)'
 
 
 if __name__ == '__main__':
