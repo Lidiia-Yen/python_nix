@@ -7,9 +7,9 @@ def find_line(all_lines):
     return needed_lines
 
 
-def decompose_line(some_lines):
+def decompose_line(all_lines):
     list_lines = []
-    for line in find_line(some_lines):
+    for line in find_line(all_lines):
         decomposed_lines = dict(params.split('.') for params in line.split(';'))
         list_lines.append(decomposed_lines)
     return list_lines
