@@ -8,7 +8,7 @@ zodiacs = [(120, 'Cap'), (218, 'Aqu'), (320, 'Pis'), (420, 'Ari'), (521, 'Tau'),
 
 
 def get_zodiac_of_date(date_of_birth):
-    date_number = int("".join((str(date_of_birth.date().month), '%02d' % date_of_birth.date().day)))
+    date_number = int("".join((str(date_of_birth.date().month), '%02d' % date_of_birth.date().day))) #отобразить начальный ноль для дат, состоящих менее чем из двух цифр
     for z in zodiacs:
         if date_number <= z[0]:
             return z[1]
