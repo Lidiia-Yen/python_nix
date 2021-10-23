@@ -47,7 +47,7 @@ def read_file(file):
         with open(file) as log_file:
             lines = log_file.readlines()
     except Exception as e:
-        print(e)
+        return e
     else:
         records = count_record(lines)
         errors = count_errors(lines)
