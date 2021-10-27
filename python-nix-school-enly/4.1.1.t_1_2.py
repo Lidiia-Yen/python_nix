@@ -1,6 +1,7 @@
 import datetime
 
 
+# task_1
 def decorate(function):
     def wrapper(text):
         result = []
@@ -22,6 +23,7 @@ def decorate(function):
     return wrapper
 
 
+# task_2
 def dec_trace(func, file_name='function_errors.log'):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
