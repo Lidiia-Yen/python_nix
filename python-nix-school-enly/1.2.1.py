@@ -39,3 +39,4 @@ if __name__ == "__main__":
     with open('yupdate-exec-yabrowser.log', 'r') as log_file:
         lines = log_file.readlines()
     print(return_result(lines))
+
