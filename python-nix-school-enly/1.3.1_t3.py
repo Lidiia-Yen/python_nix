@@ -28,9 +28,8 @@ def return_result(date_of_birth):
 
 
 if __name__ == '__main__':
-    input_date = str(input())
     try:
-        birthday = datetime.strptime(input_date, '%d-%m-%Y')
+        birthday = datetime.strptime('14-05-1996', '%d-%m-%Y')
         print(return_result(birthday))
     except ValueError:
         print("Incorrect format, please enter dd-mm-yyyy")
