@@ -51,7 +51,8 @@ def read_file(file):
     else:
         records = count_record(lines)
         errors = count_errors(lines)
-        return f'\n(количество записей в yupdate.log) / (количество записей с ошибками) = {divide_lines_to_errors(records, errors)}'
+        return f'\n(количество записей в yupdate.log) / (количество записей с ошибками) = ' \
+               f'{divide_lines_to_errors(records, errors)}'
 
 
 if __name__ == "__main__":
