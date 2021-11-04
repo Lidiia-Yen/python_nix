@@ -15,18 +15,17 @@ def decompose_line(all_lines):
     return list_lines
 
 
-def compare_params(dict1, dict2):
+def compare_params(dict_pre_last, dict_last):
     difference_dict = {}
-    for key in dict2:
-        if key in dict1:
-            if dict1[key] != dict2[key]:
-                difference_dict[key] = {'last': dict1[key], 'second_to_last': dict2[key]}
+    for key in dict_last:
+        if key in dict_pre_last and dict_pre_last[key] != dict_last[key]:
+            difference_dict[key] = {'pre_last': dict_pre_last[key], 'last': dict_last[key]}
         else:
-            difference_dict[key] = {'last': 'BLANK', 'second_to_last': dict2[key]}
+            difference_dict[key] = {'pre_last': 'BLANK', 'last': dict_last[key]}
 
-    for key in dict1:
-        if key not in dict2 and key not in difference_dict:
-            difference_dict[key] = {'last': dict1[key], 'second_to_last': 'BLANK'}
+    for key in dict_pre_last:
+        if key not in dict_last:
+            difference_dict[key] = {'pre_last': dict_pre_last[key], 'last': 'BLANK'}
 
     return difference_dict
 
