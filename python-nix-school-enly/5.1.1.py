@@ -8,14 +8,14 @@ def parse_site():
     r = requests.get(url=f'{test_payload}/spec.json',
                      headers={'user-agent': 'Python Learning Requests'})
     paths_dict = json.loads(r.text)['paths']
-    no_200_dict = {}
+    not_200_dict = {}
     for url in paths_dict:
         for method in paths_dict[url]:
             for response in paths_dict[url][method]['responses']:
                 if response != '200':
-                    no_200_dict[f'{test_payload}{url}'] = response
+                    not_200_dict[f'{test_payload}{url}'] = response
 
-    return f'\n task_1 {no_200_dict}'
+    return f'\n task_1 {not_200_dict}'
 
 
 # task_2
