@@ -42,4 +42,4 @@ if __name__ == "__main__":
                                     'comments': 'Науки, 2a/18'}
                        )
           )
-    print(find_country_code())
+    print(find_countries())
