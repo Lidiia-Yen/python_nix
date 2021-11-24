@@ -27,7 +27,7 @@ def submit_order(submit_headers, submit_data):
 
 # task_3_1/3_2  эндпоинт https://restcountries.eu/rest/v1/all не работает, a эндпоинт http://api.countrylayer.com/v2/all
 # не возвращает 'languages', поэтому задание 3 не может быть выполнено
-def find_country_code():
+def find_countries():
     r = requests.get(url='http://api.countrylayer.com/v2/all',
                      params={'access_key': 'e11a4ba552717b1d0636fa62b3c37180'},
                      headers={'User-Agent': 'Python Learning Requests'})
