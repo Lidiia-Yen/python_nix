@@ -25,7 +25,7 @@ def submit_order(submit_headers, submit_data):
     return f'\n task_2 {response, r.headers}'
 
 
-# task_3_1/3_2  эндпоинт https://restcountries.eu/rest/v1/all не работает, a эндпоинт http://api.countrylayer.com/v2/all
+# task_3_1/3_2  https://restcountries.eu/rest/v1/all не работает, a http://api.countrylayer.com/v2/all
 # не возвращает 'languages', поэтому задание 3 не может быть выполнено
 def find_countries():
     r = requests.get(url='http://api.countrylayer.com/v2/all',
