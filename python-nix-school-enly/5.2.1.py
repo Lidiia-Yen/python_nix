@@ -1,16 +1,31 @@
 from zeep import Client
+client = Client(wsdl='http://secure.smartbearsoftware.com/samples/testcomplete10/webservices/Service.asmx?WSDL')
 
-# Task_1
-wsdl = 'http://secure.smartbearsoftware.com/samples/testcomplete10/webservices/Service.asmx?WSDL'
-client = Client(wsdl=wsdl)
-service = client.bind(service_name='SampleWebService', port_name='SampleWebServiceSoap')
+# task_1
+def modify_object():
+    client.transport.session.headers.update({'User-Agent': 'Python Learning Requests'})
+    get_object = client.service.GetSampleObject(no=3)
+    get_object['X'], get_object['Y'] = get_object['Y'], get_object['X']
+    get_object['Name'] = 'My Test'
+    return f'\n Task 1: {client.service.SetSampleObject(get_object)}'
 
-my_object_x = service.GetSampleObject(no=3)['Y']
-my_object_y = service.GetSampleObject(no=3)['X']
-my_object = service.SetSampleObject({"no": 3, "X": my_object_x, "Y": my_object_y, "Name": "My Test"})
+
+# task_2
+def get_books():
+    client.transport.session.headers.update({'User-Agent': 'Python Learning Requests'})
+    get_lxml = client.service.GetXmlData()
+    all_books = get_lxml.findall('book')
+    books = {}
+    for book in all_books:
+        book_attributes = {}
+        tags = ['id', 'title', 'genre', 'review', 'price']
+        for items in book:
+            if items.tag in tags:
+                book_attributes[items.tag] = items.text
+        books[book.get('id')] = book_attributes
+    return f'\n Task 2: {books}'
 
 
-print(service.GetSampleObject(no=3))
-
-# python -mzeep http://secure.smartbearsoftware.com/samples/testcomplete10/webservices/Service.asmx?WSDL
-# client.transport.session.headers.update({'User-Agent': 'Python Learning Requests'})
+if __name__ == "__main__":
+    print(modify_object())
+    print(get_books())
