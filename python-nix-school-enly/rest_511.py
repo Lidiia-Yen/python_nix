@@ -39,6 +39,6 @@ def find_countries():
 
 
 if __name__ == "__main__":
-    print(f'\n task_1 {get_not200   ()}')
+    print(f'\n task_1 {get_not200()}')
     print(f'\n task_2 {submit_order()}')
     print(f'\n task_3 can not be done completed, see comments {find_countries()}')
