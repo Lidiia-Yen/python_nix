@@ -13,17 +13,17 @@ class TestRest(unittest.TestCase):
         self.assertNotEqual(len(self.get_not_200), 0, "only status codes 200 are returned, no other status codes")
 
     # task_2
-    def test_customer_name(self):
-        self.assertEqual(len(self.submit_an_order[0]['custname'].split(' ')), 2)
-
-    def test_customer_email(self):
-        self.assertIn('@', self.submit_an_order[0]['custemail'])
-
     def test_response_type(self):
         self.assertNotEqual(type(self.submit_an_order[0]), Exception)
 
     def test_user_agent(self):
         self.assertIn('User-Agent', self.submit_an_order[1].keys())
+
+    def test_customer_name(self):
+        self.assertEqual(len(self.submit_an_order[0]['custname'].split(' ')), 2)
+
+    def test_customer_email(self):
+        self.assertIn('@', self.submit_an_order[0]['custemail'])
 
     # task_3_1/3_2
     def test_languages_return(self):
