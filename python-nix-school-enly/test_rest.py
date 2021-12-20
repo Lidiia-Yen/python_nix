@@ -19,11 +19,11 @@ class TestRest(unittest.TestCase):
     def test_customer_email(self):
         self.assertIn('@', self.submit_an_order[0]['custemail'])
 
-    def test_user_agent(self):
-        self.assertIn('User-Agent', self.submit_an_order[1].keys())
-
     def test_response_type(self):
         self.assertNotEqual(type(self.submit_an_order[0]), Exception)
+
+    def test_user_agent(self):
+        self.assertIn('User-Agent', self.submit_an_order[1].keys())
 
     # task_3_1/3_2
     def test_languages_return(self):
