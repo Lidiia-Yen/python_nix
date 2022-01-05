@@ -2,8 +2,8 @@ import json
 import requests
 import pytest
 
-# pytest -v  python-nix-school-enly/test_6_3_1.py --rounding_index 7
-# pytest -v  python-nix-school-enly/test_6_3_1.py -m add
+# pytest -v  6/test_6_3_1.py --rounding_index 7
+# pytest -v  6/test_6_3_1.py -m add
 
 
 url = 'http://api.mathjs.org/v4/'
