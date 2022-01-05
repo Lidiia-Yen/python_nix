@@ -1,7 +1,7 @@
 import unittest
 from unittest import expectedFailure
 
-import rest_5_1_1
+from rest_soap5 import rest_5_1_1
 
 
 class TestRest(unittest.TestCase):

@@ -1,5 +1,5 @@
 import unittest
-import soap_5_2_1
+from rest_soap5 import soap_5_2_1
 
 
 class TestSoap(unittest.TestCase):
