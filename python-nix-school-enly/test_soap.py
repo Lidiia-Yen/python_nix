@@ -1,11 +1,11 @@
 import unittest
-import soap_521
+import soap_5_2_1
 
 
 class TestSoap(unittest.TestCase):
     def setUp(self):
-        self.modify_object = soap_521.modify_object()
-        self.get_all_books = soap_521.get_books()
+        self.modify_object = soap_5_2_1.modify_object()
+        self.get_all_books = soap_5_2_1.get_books()
 
     # task_1
     def test_object_name(self):
