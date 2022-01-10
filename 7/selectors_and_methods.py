@@ -50,21 +50,21 @@ class Order(BaseActions):
             size = self.find_element(FormLocators.locator_large_radiobutton)
             return size.click()
 
-    def select_topping(self, *kwargs):
+    def select_topping(self, toppings):
         topping = []
-        if 'bacon' in kwargs:
+        if 'bacon' in toppings:
             check_box_1 = self.find_element(FormLocators.locator_bacon_checkbox)
             check_box_1.click()
             topping.append(check_box_1)
-        if 'cheese' in kwargs:
+        if 'cheese' in toppings:
             check_box_2 = self.find_element(FormLocators.locator_cheese_checkbox)
             check_box_2.click()
             topping.append(check_box_2)
-        if 'onion' in kwargs:
+        if 'onion' in toppings:
             check_box_3 = self.find_element(FormLocators.locator_onion_checkbox)
             check_box_3.click()
             topping.append(check_box_3)
-        if 'mushroom' in kwargs:
+        if 'mushroom' in toppings:
             check_box_4 = self.find_element(FormLocators.locator_mushroom_checkbox)
             check_box_4.click()
             topping.append(check_box_4)
@@ -74,5 +74,5 @@ class Order(BaseActions):
         return self.find_element(FormLocators.locator_submit_button).click()
 
     def json_response(self):
-        json_text = self.find_elements(FormLocators.locator_json_response)
+        json_text = self.find_element(FormLocators.locator_json_response)
         return json_text
