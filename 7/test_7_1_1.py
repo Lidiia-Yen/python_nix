@@ -1,6 +1,5 @@
 import pytest
-# from hamcrest import *
-# can't import this module
+from hamcrest import *
 from selectors_and_methods import Order
 import json
 
@@ -28,4 +27,4 @@ def test_order(chrome_driver, test_name, test_tel, test_email, test_size, test_t
     page.select_size(test_size)
     page.select_topping(test_topping)
     page.click_submit()
-    assert json.loads(page.json_response().text)['form'] == expected_form
+    assert_that(json.loads(page.json_response().text)['form'], equal_to(expected_form))
