@@ -29,16 +29,43 @@ def submit_order():
     return response, r.headers
 
 
-# task_3_1/3_2  https://restcountries.eu/rest/v1/all не работает, a http://api.countrylayer.com/v2/all
-# не возвращает 'languages', поэтому задание 3 не может быть выполнено
-def find_countries():
-    r = requests.get(url='http://api.countrylayer.com/v2/all',
-                     params={'access_key': 'e11a4ba552717b1d0636fa62b3c37180'},
-                     headers={'User-Agent': 'Python Learning Requests'})
-    return json.loads(r.text)
+# task_3_1  API https://restcountries.com/v3.1/all
+def get_all_languages():
+    response_json = requests.get(url='https://restcountries.com/v3.1/all',
+                                 headers={'User-Agent': 'Python Learning Requests'}).json()
+    languages = set()
+    for a in range(0, len(response_json)):
+        try:
+            for country in response_json:
+                languages.update(country['languages'])
+        except KeyError:
+            pass
+    return sorted(languages)
+
+
+# task 3_2 API https://restcountries.com/v3.1/all
+def get_lang_population(lang_codes: list):
+    response_json = requests.get(url='https://restcountries.com/v3.1/all',
+                                 headers={'User-Agent': 'Python Learning Requests'}).json()
+    population = {}
+    for a in range(0, len(response_json)):
+        try:
+            for lang in response_json[a].get('languages'):
+                if lang in lang_codes:
+                    try:
+                        population[lang] += response_json[a]['population']
+                    except KeyError:
+                        population[lang] = response_json[a]['population']
+        except TypeError:
+            pass
+
+    return population
 
 
 if __name__ == "__main__":
-    print(f'\n task_1 {get_not200()}')
-    print(f'\n task_2 {submit_order()}')
-    print(f'\n task_3 can not be done completed, see comments {find_countries()}')
+    lang_codes_list = ['eng', 'rus', 'fra', 'spa', 'zho']
+    #print(f'\n task_1 {get_not200()}')
+    #print(f'\n task_2 {submit_order()}')
+    print(f'\n task_3.1 {get_all_languages()}')
+    print(f'\n task_3.2 {get_lang_population(lang_codes_list)}')
+

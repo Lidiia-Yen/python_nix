@@ -8,7 +8,8 @@ class TestRest(unittest.TestCase):
     def setUp(self):
         self.get_not_200 = rest_5_1_1.get_not200()
         self.submit_an_order = rest_5_1_1.submit_order()
-        self.find_all_countries = rest_5_1_1.find_countries()
+        self.get_languages = rest_5_1_1.get_all_languages()
+        self.get_population = rest_5_1_1.get_lang_population(lang_codes=['eng', 'rus', 'fra', 'spa', 'zho'])
 
     # task_1
     def test_not200_result(self):
@@ -29,9 +30,11 @@ class TestRest(unittest.TestCase):
         self.assertIn('@', self.submit_an_order[0]['custemail'])
 
     # task_3_1/3_2
-    @expectedFailure
     def test_languages_return(self):
-        self.assertIn('languages', self.find_all_countries[0].keys())
+        self.assertIn('eng', self.get_languages)
+
+    def test_get_population(self):
+        self.assertIn('eng', self.get_population.keys())
 
 
 if __name__ == '__main__':
