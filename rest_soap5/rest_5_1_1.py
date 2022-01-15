@@ -64,8 +64,8 @@ def get_lang_population(lang_codes: list):
 
 if __name__ == "__main__":
     lang_codes_list = ['eng', 'rus', 'fra', 'spa', 'zho']
-    #print(f'\n task_1 {get_not200()}')
-    #print(f'\n task_2 {submit_order()}')
+    print(f'\n task_1 {get_not200()}')
+    print(f'\n task_2 {submit_order()}')
     print(f'\n task_3.1 {get_all_languages()}')
     print(f'\n task_3.2 {get_lang_population(lang_codes_list)}')
 
