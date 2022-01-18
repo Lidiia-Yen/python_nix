@@ -1,6 +1,3 @@
-import re
-
-
 def find_line(all_lines):
     pattern_lines = [string.split("eid: ")[1] for string in all_lines if "eid: " in string]
     needed_lines = pattern_lines[-2:]
