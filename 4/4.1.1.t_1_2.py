@@ -11,12 +11,11 @@ def transliterate(function):
                         'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'}
         for letter in text:
             if letter.isupper():
-                symbol = letters_dict[letter.lower()].capitalize()
+                result += letters_dict[letter.lower()].capitalize()
             elif letter.islower():
-                symbol = letters_dict[letter.lower()].lower()
+                result += letters_dict[letter.lower()].lower()
             else:
-                symbol = letter
-            result = result + symbol
+                result += letter
         return function(result)
 
     return wrapper
