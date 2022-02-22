@@ -10,8 +10,8 @@ def transliterate(function):
                         'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch',
                         'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'}
         for letter in text:
-            result += letters_dict.get(letter.lower(), letter.lower()).capitalize() \
-                if letter.isupper() else letters_dict.get(letter, letter)
+            result += (letters_dict.get(letter.lower(), letter.lower()).capitalize() if letter.isupper()
+                       else letters_dict.get(letter, letter))
         return function(result)
 
     return wrapper
