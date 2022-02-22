@@ -1,4 +1,5 @@
 import datetime
+import logging
 
 
 # task_1
@@ -35,6 +36,12 @@ def dec_trace(func, file_name='function_errors.log'):
 @transliterate
 def output_text(user_input):
     return user_input
+
+
+# logging.basicConfig(level=logging.DEBUG, filename='4_1_1.log',
+#                     format=('[time]:%(asctime)s, [module]:%(func.__module__)s, [function]:%(func.__name__)s,'
+#                             ' [arguments]: %(args)s,[return] %(result)s'))
+
 
 
 if __name__ == '__main__':
