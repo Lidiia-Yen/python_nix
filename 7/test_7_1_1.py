@@ -3,6 +3,7 @@ from hamcrest import *
 from selectors_and_methods import Order
 import json
 
+# pytest -v  7/test_7_1_1.py
 
 @pytest.mark.parametrize('test_name', ['Lidia Yen'])
 @pytest.mark.parametrize('test_tel', ['911'])
