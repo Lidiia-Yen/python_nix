@@ -1,6 +1,5 @@
 import pytest
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 def pytest_addoption(parser):
@@ -24,6 +23,6 @@ def pytest_configure(config):
 
 @pytest.fixture(scope='session')
 def chrome_driver():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome('chromedriver.exe')
     yield driver
     driver.quit()
