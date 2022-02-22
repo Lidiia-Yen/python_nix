@@ -4,18 +4,14 @@ import datetime
 # task_1
 def transliterate(function):
     def wrapper(text):
-        result = str()
+        result = ''
         letters_dict = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'ye', 'ж': 'zh', 'з': 'z',
                         'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r',
                         'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch',
                         'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'}
         for letter in text:
-            if letter.isupper():
-                result += letters_dict[letter.lower()].capitalize()
-            elif letter.islower():
-                result += letters_dict[letter.lower()].lower()
-            else:
-                result += letter
+            result += letters_dict.get(letter.lower(), letter.lower()).capitalize() \
+                if letter.isupper() else letters_dict.get(letter, letter)
         return function(result)
 
     return wrapper
