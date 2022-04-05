@@ -1,6 +1,11 @@
 import datetime
 import logging
 
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+fileHandler = logging.FileHandler('logger_errors.log', 'w', 'utf-8')
+logger.addHandler(fileHandler)
+
 
 # task_1
 def transliterate(function):
@@ -19,16 +24,12 @@ def transliterate(function):
 
 
 # task_2
-def dec_trace(func, file_name='function_errors.log'):
+def dec_trace(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-        with open(file_name, mode='a', encoding='utf-8') as file:
-            file.write(
-                f"[time]:{datetime.datetime.now().strftime('%H:%M:%S')},[module]:{format(func.__module__)},["
-                f"function]:{format(func.__name__)},[arguments]:{args}, [return]:{result}\n")
-
-            return result
-
+        logger.info(f"[time]: {datetime.datetime.now().strftime('%H:%M:%S')},[module]: {format(func.__module__)},["
+                    f"function]: {format(func.__name__)},[arguments]: {args}, [return]: {result}\n")
+        return result
     return wrapper
 
 
@@ -36,12 +37,6 @@ def dec_trace(func, file_name='function_errors.log'):
 @transliterate
 def output_text(user_input):
     return user_input
-
-
-# logging.basicConfig(level=logging.DEBUG, filename='4_1_1.log',
-#                     format=('[time]:%(asctime)s, [module]:%(func.__module__)s, [function]:%(func.__name__)s,'
-#                             ' [arguments]: %(args)s,[return] %(result)s'))
-
 
 
 if __name__ == '__main__':
