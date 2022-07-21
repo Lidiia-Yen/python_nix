@@ -19,10 +19,6 @@ class TestRest(unittest.TestCase):
     def test_response_type(self):
         self.assertNotEqual(type(self.submit_an_order[0]), Exception)
 
-    @expectedFailure
-    def test_user_agent(self):
-        self.assertIn('User-Agent', self.submit_an_order[1].keys())
-
     def test_customer_name(self):
         self.assertEqual(len(self.submit_an_order[0]['custname'].split(' ')), 2)
 
